@@ -29,5 +29,13 @@ RUN \
   apt-get install sbt && \
   sbt sbtVersion
 
+COPY test-sbt.sh /tmp/
+
+RUN cd /tmp  && \
+    mkdir -p src/main/scala && \
+    echo "object Main {}" > src/main/scala/Main.scala && \
+    ./test-sbt.sh  && \
+    rm -rf *
+
 # Define working directory
 WORKDIR /root
