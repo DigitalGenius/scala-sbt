@@ -26,7 +26,7 @@ RUN \
   dpkg -i sbt-$SBT_VERSION.deb && \
   rm sbt-$SBT_VERSION.deb && \
   apt-get update && \
-  apt-get install sbt tree && \
+  apt-get install sbt tree -y && \
   sbt sbtVersion
 
 COPY test-sbt.sh /tmp/
